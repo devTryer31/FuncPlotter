@@ -18,7 +18,7 @@ int main() {
 			std::cin >> x; 
 		}
 		catch (const std::exception&){
-			std::cout << "Wrong value X" << std::endl;
+			std::cout << "Wrong value X." << "Try egain:" << std::endl;
 		}
 		std::cin.get();
 		try {
