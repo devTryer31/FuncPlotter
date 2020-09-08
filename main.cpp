@@ -14,13 +14,20 @@ int main() {
 		std::getline(std::cin, expr);
 		if (expr == "end") break;
 		std::cout << "Enter the x value:" << std::endl;
-		try{ 
-			std::cin >> x; 
+		while (true) {
+			std::regex regular("\\d+\\.*\\d*");
+			std::string str;
+			std::getline(std::cin, str);
+			if (std::regex_match(str.begin(), str.end(), regular)) {
+				x = std::stod(str);
+				break;
+			}
+			else {
+				std::cout << "Wrong value X. " << "Try again:" << std::endl;
+				continue;
+			}
 		}
-		catch (const std::exception&){
-			std::cout << "Wrong value X." << "Try egain:" << std::endl;
-		}
-		std::cin.get();
+		//std::cin.get();
 		try {
 			std::cout << Func(expr).EvaluateInPoint(x) << std::endl << "=====================\n" <<std::endl;
 		}
